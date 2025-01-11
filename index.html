@@ -7,19 +7,28 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">
-    <div id="quiz">
-      <h1 class="title">Baroque Music Quiz</h1>
-      <p id="question">Loading question...</p>
-      <div id="answers" class="answers"></div>
-      <button id="next-btn" class="btn">Next</button>
-    </div>
-    <div id="result" class="hidden">
-      <h2 class="title">Quiz Completed!</h2>
-      <p id="score"></p>
-      <button id="restart-btn" class="btn">Restart</button>
-    </div>
+  <div id="start-screen" class="container">
+    <h1 class="title">Welcome to the Music Quiz</h1>
+    <p class="description">Test your knowledge of Baroque, Classical, Romantic, and Piano music!</p>
+    <button class="btn start-btn" data-theme="baroque">Baroque Music</button>
+    <button class="btn start-btn" data-theme="classical">Classical Music</button>
+    <button class="btn start-btn" data-theme="romantic">Romantic Music</button>
+    <button class="btn start-btn" data-theme="piano">Piano Music</button>
   </div>
+
+  <div id="quiz-screen" class="container hidden">
+    <h1 id="quiz-title" class="title">Music Quiz</h1>
+    <p id="question">Loading question...</p>
+    <div id="answers" class="answers"></div>
+    <button id="next-btn" class="btn">Next</button>
+  </div>
+
+  <div id="result-screen" class="container hidden">
+    <h1 class="title">Quiz Completed!</h1>
+    <p id="score"></p>
+    <button id="restart-btn" class="btn">Restart</button>
+  </div>
+
   <script src="script.js"></script>
 </body>
 </html>
