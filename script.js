@@ -121,15 +121,16 @@ const restartQuiz = () => {
   startQuiz(currentTheme); // Restart the current theme
 };
 
-// Add event listeners
-backButtons.forEach((btn) =>
-  btn.addEventListener("click", () => {
-    quizScreen.classList.add("hidden");
-    resultScreen.classList.add("hidden");
-    startScreen.classList.remove("hidden");
-  })
-);
+// Go back to choices and reset styles
+const goToChoices = () => {
+  document.body.className = ""; // Reset body class to remove any theme
+  quizScreen.classList.add("hidden");
+  resultScreen.classList.add("hidden");
+  startScreen.classList.remove("hidden");
+};
 
+// Add event listeners
+backButtons.forEach((btn) => btn.addEventListener("click", goToChoices));
 nextButton.addEventListener("click", nextQuestion);
 restartButton.addEventListener("click", restartQuiz);
 document.querySelectorAll(".start-btn").forEach((btn) =>
