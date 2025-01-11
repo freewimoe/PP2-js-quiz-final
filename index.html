@@ -3,30 +3,37 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Music Quiz</title>
+  <title>ESK Karlsruhe: Music Quiz</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <!-- Start Screen -->
   <div id="start-screen" class="container">
-    <h1 class="title">Welcome to the Music Quiz</h1>
+    <h1 class="title">ESK Karlsruhe: Music Quiz</h1>
     <p class="description">Test your knowledge of Baroque, Classical, Romantic, and Piano music!</p>
-    <button class="btn start-btn" data-theme="baroque">Baroque Music</button>
-    <button class="btn start-btn" data-theme="classical">Classical Music</button>
-    <button class="btn start-btn" data-theme="romantic">Romantic Music</button>
-    <button class="btn start-btn" data-theme="piano">Piano Music</button>
+    <div class="quiz-buttons">
+      <button class="btn start-btn baroque-btn" data-theme="baroque">Baroque Music</button>
+      <button class="btn start-btn classical-btn" data-theme="classical">Classical Music</button>
+      <button class="btn start-btn romantic-btn" data-theme="romantic">Romantic Music</button>
+      <button class="btn start-btn piano-btn" data-theme="piano">Piano Music</button>
+    </div>
   </div>
 
+  <!-- Quiz Screen -->
   <div id="quiz-screen" class="container hidden">
     <h1 id="quiz-title" class="title">Music Quiz</h1>
     <p id="question">Loading question...</p>
     <div id="answers" class="answers"></div>
     <button id="next-btn" class="btn">Next</button>
+    <button id="back-btn" class="btn back-btn">Back to Choices</button>
   </div>
 
+  <!-- Result Screen -->
   <div id="result-screen" class="container hidden">
     <h1 class="title">Quiz Completed!</h1>
     <p id="score"></p>
     <button id="restart-btn" class="btn">Restart</button>
+    <button id="back-btn-result" class="btn back-btn">Back to Choices</button>
   </div>
 
   <script src="script.js"></script>

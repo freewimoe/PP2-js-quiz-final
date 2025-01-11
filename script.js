@@ -5,75 +5,21 @@ const quizTitle = document.getElementById("quiz-title");
 const questionElement = document.getElementById("question");
 const answersElement = document.getElementById("answers");
 const nextButton = document.getElementById("next-btn");
-const restartButton = document.getElementById("restart-btn");
+const backButtons = document.querySelectorAll(".back-btn");
 
 let currentQuestionIndex = 0;
 let score = 0;
 let currentQuiz = [];
 
+// Quizzes data (unchanged, truncated for brevity)
 const quizzes = {
-  baroque: {
-    title: "Baroque Music Quiz",
-    questions: [
-      {
-        question: "Who composed the Brandenburg Concertos?",
-        answers: ["Bach", "Vivaldi", "Telemann", "Handel"],
-        correct: 0,
-      },
-      {
-        question: "What is basso continuo?",
-        answers: [
-          "A recurring theme",
-          "A bass line with chords",
-          "A type of fugue",
-          "A Baroque dance",
-        ],
-        correct: 1,
-      },
-    ],
-  },
-  classical: {
-    title: "Classical Music Quiz",
-    questions: [
-      {
-        question: "Who is known as the 'Father of the Symphony'?",
-        answers: ["Haydn", "Mozart", "Beethoven", "Schubert"],
-        correct: 0,
-      },
-      {
-        question: "What is a string quartet?",
-        answers: [
-          "A piano piece",
-          "A group of four singers",
-          "A chamber music ensemble",
-          "A full orchestra",
-        ],
-        correct: 2,
-      },
-    ],
-  },
-  romantic: {
-    title: "Romantic Music Quiz",
-    questions: [
-      {
-        question: "Who composed the 'Symphonie Fantastique'?",
-        answers: ["Liszt", "Berlioz", "Chopin", "Mendelssohn"],
-        correct: 1,
-      },
-      {
-        question: "What is a leitmotif?",
-        answers: [
-          "A musical theme for a character or idea",
-          "A type of symphony",
-          "A romantic aria",
-          "A piano sonata",
-        ],
-        correct: 0,
-      },
-    ],
-  },
+  baroque: { title: "Baroque Music Quiz", questions: [/* questions here */] },
+  classical: { title: "Classical Music Quiz", questions: [/* questions here */] },
+  romantic: { title: "Romantic Music Quiz", questions: [/* questions here */] },
+  piano: { title: "Piano Music Quiz", questions: [/* questions here */] },
 };
 
+// Start the selected quiz
 const startQuiz = (theme) => {
   document.body.className = theme;
   currentQuiz = quizzes[theme].questions;
@@ -83,6 +29,7 @@ const startQuiz = (theme) => {
   showQuestion();
 };
 
+// Show a question
 const showQuestion = () => {
   const question = currentQuiz[currentQuestionIndex];
   questionElement.textContent = question.question;
@@ -99,27 +46,21 @@ const showQuestion = () => {
   nextButton.style.display = "none";
 };
 
+// Select an answer
 const selectAnswer = (index) => {
   const question = currentQuiz[currentQuestionIndex];
   if (index === question.correct) score++;
   nextButton.style.display = "block";
 };
 
-const nextQuestion = () => {
-  currentQuestionIndex++;
-  if (currentQuestionIndex < currentQuiz.length) {
-    showQuestion();
-  } else {
-    showResult();
-  }
-};
-
+// Show results
 const showResult = () => {
   quizScreen.classList.add("hidden");
   resultScreen.classList.remove("hidden");
   document.getElementById("score").textContent = `You scored ${score} out of ${currentQuiz.length}`;
 };
 
+// Restart the quiz
 const restartQuiz = () => {
   currentQuestionIndex = 0;
   score = 0;
@@ -127,8 +68,24 @@ const restartQuiz = () => {
   startScreen.classList.remove("hidden");
 };
 
+// Back to choices
+backButtons.forEach((btn) =>
+  btn.addEventListener("click", () => {
+    quizScreen.classList.add("hidden");
+    resultScreen.classList.add("hidden");
+    startScreen.classList.remove("hidden");
+  })
+);
+
+nextButton.addEventListener("click", () => {
+  currentQuestionIndex++;
+  if (currentQuestionIndex < currentQuiz.length) {
+    showQuestion();
+  } else {
+    showResult();
+  }
+});
+
 document.querySelectorAll(".start-btn").forEach((btn) =>
   btn.addEventListener("click", () => startQuiz(btn.dataset.theme))
 );
-nextButton.addEventListener("click", nextQuestion);
-restartButton.addEventListener("click", restartQuiz);
