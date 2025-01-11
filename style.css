@@ -1,97 +1,127 @@
 :root {
-    --primary-color: #333;
-    --secondary-color: #f1f1f1;
-    --text-color: #fff;
-    --btn-hover: #444;
-  }
-  body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    background: var(--secondary-color); 
-    background: linear-gradient(
-      rgba(255, 255, 255, 0.9), 
+  --primary-color: #333;
+  --secondary-color: #f1f1f1;
+  --text-color: #fff;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background: var(--secondary-color);
+  background: linear-gradient(
+      rgba(255, 255, 255, 0.9),
       rgba(255, 255, 255, 0.9)
     ),
     url('images/ESK-logo.png') no-repeat center center;
-    background-size: contain;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-  }
-  
-  .container {
-    background: rgba(255, 255, 255, 0.9);
-    width: 100%;
-    max-width: 400px;
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-    text-align: center;
-  }
-  
-  .hidden {
-    display: none;
-  }
-  
-  .title {
-    margin-bottom: 20px;
-    font-size: 1.8rem;
-    color: var(--primary-color);
-  }
-  
-  .description {
-    margin-bottom: 20px;
-    font-size: 1rem;
-    color: #666;
-  }
-  
-  .quiz-buttons {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-  }
-  
-  /* Buttons for categories */
-  .baroque-btn {
-    background-color: #6a4f4b;
-  }
-  
-  .classical-btn {
-    background-color: #0077b6;
-  }
-  
-  .romantic-btn {
-    background-color: #9d4edd;
-  }
-  
-  .piano-btn {
-    background-color: #2a9d8f;
-  }
-  
-  .btn {
-    padding: 10px 20px;
-    border: none;
-    color: white;
-    font-size: 1rem;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background 0.3s ease;
-  }
-  
-  .btn:hover {
-    opacity: 0.8;
-  }
-  
-  .back-btn {
-    margin-top: 10px;
-    background-color: var(--primary-color);
-  }
-  
-  .answers {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-bottom: 20px;
-  }
-  
+  background-size: contain;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.container {
+  background: rgba(255, 255, 255, 0.9);
+  width: 100%;
+  max-width: 400px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  text-align: center;
+}
+
+.hidden {
+  display: none;
+}
+
+.title {
+  margin-bottom: 20px;
+  font-size: 1.8rem;
+  color: var(--primary-color);
+}
+
+.description {
+  margin-bottom: 20px;
+  font-size: 1rem;
+  color: #666;
+}
+
+.quiz-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Buttons for categories */
+.baroque-btn {
+  background-color: #8b5e56;
+}
+
+.classical-btn {
+  background-color: #0077b6;
+}
+
+.romantic-btn {
+  background-color: #b05cda;
+}
+
+.piano-btn {
+  background-color: #37a999;
+}
+
+.btn {
+  padding: 12px 25px;
+  border: none;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  transform: scale(1.1); /* Enlarge the button */
+  filter: brightness(1.2); /* Brighten background */
+  color: #333; /* Darken text color */
+}
+
+/* Highlight the selected button */
+.btn.selected {
+  transform: scale(1.2); /* Make button slightly larger */
+  background-color: #333; /* Dark background */
+  color: #fff; /* White text */
+}
+
+.back-btn {
+  margin-top: 10px;
+  background-color: var(--primary-color);
+}
+
+.answers {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+/* Dynamic themes for buttons and next button */
+.baroque .btn,
+.baroque #next-btn {
+  background-color: #8b5e56;
+}
+
+.classical .btn,
+.classical #next-btn {
+  background-color: #0077b6;
+}
+
+.romantic .btn,
+.romantic #next-btn {
+  background-color: #b05cda;
+}
+
+.piano .btn,
+.piano #next-btn {
+  background-color: #37a999;
+}
