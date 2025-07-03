@@ -262,19 +262,6 @@ PP2-js-quiz-final/
 ![Mobile Quiz](images/mobile-quiz-screenshot.png)
 *Mobile quiz interface with touch-friendly buttons and responsive design*
 
-### Theme Variations
-![Baroque Theme](images/baroque-theme-screenshot.png)
-*Baroque music category with brown color scheme*
-
-![Classical Theme](images/classical-theme-screenshot.png)
-*Classical music category with blue color scheme*
-
-![Romantic Theme](images/romantic-theme-screenshot.png)
-*Romantic music category with purple color scheme*
-
-![Piano Theme](images/piano-theme-screenshot.png)
-*Piano music category with green color scheme*
-
 ---
 
 ## 🎯 Learning Outcomes
