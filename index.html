@@ -1,39 +1,120 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ESK Karlsruhe: Music Quiz</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+  <!-- Loading Screen -->
+  <div id="loading-screen" class="container hidden">
+    <div class="loading-spinner"></div>
+    <p>Quiz wird geladen...</p>
+  </div>
+
+  <!-- Error Screen -->
+  <div id="error-screen" class="container hidden">
+    <div class="error-icon">⚠️</div>
+    <h2>Ups! Etwas ist schiefgelaufen</h2>
+    <p id="error-message">Quiz konnte nicht geladen werden.</p>
+    <button id="retry-btn" class="btn">Erneut versuchen</button>
+  </div>
+
   <!-- Start Screen -->
   <div id="start-screen" class="container">
-    <h1 class="title">ESK Karlsruhe: Music Quiz</h1>
-    <p class="description">Test your knowledge of Baroque, Classical, Romantic, and Piano music!</p>
+    <header class="quiz-header">
+      <h1 class="title">🎵 ESK Karlsruhe</h1>
+      <h2 class="subtitle">Music Quiz</h2>
+      <p class="description">Teste dein Wissen über Barock, Klassik, Romantik und Klaviermusik!</p>
+    </header>
+    
     <div class="quiz-buttons">
-      <button class="btn start-btn baroque-btn" data-theme="baroque">Baroque Music</button>
-      <button class="btn start-btn classical-btn" data-theme="classical">Classical Music</button>
-      <button class="btn start-btn romantic-btn" data-theme="romantic">Romantic Music</button>
-      <button class="btn start-btn piano-btn" data-theme="piano">Piano Music</button>
+      <button class="btn start-btn baroque-btn" data-theme="baroque" aria-label="Barock Musik Quiz starten">
+        <span class="btn-icon">🎼</span>
+        <span class="btn-text">Barock Musik</span>
+      </button>
+      <button class="btn start-btn classical-btn" data-theme="classical" aria-label="Klassische Musik Quiz starten">
+        <span class="btn-icon">🎻</span>
+        <span class="btn-text">Klassische Musik</span>
+      </button>
+      <button class="btn start-btn romantic-btn" data-theme="romantic" aria-label="Romantik Musik Quiz starten">
+        <span class="btn-icon">🌹</span>
+        <span class="btn-text">Romantik Musik</span>
+      </button>
+      <button class="btn start-btn piano-btn" data-theme="piano" aria-label="Klavier Musik Quiz starten">
+        <span class="btn-icon">🎹</span>
+        <span class="btn-text">Klavier Musik</span>
+      </button>
     </div>
+
+    <footer class="quiz-footer">
+      <p>Jede Kategorie enthält 4 Fragen</p>
+    </footer>
   </div>
 
   <!-- Quiz Screen -->
   <div id="quiz-screen" class="container hidden">
-    <h1 id="quiz-title" class="title">Music Quiz</h1>
-    <p id="question">Loading question...</p>
-    <div id="answers" class="answers"></div>
-    <button id="next-btn" class="btn">Next</button>
-    <button id="back-btn" class="btn back-btn">Back to Choices</button>
+    <header class="quiz-header">
+      <h1 id="quiz-title" class="title">Music Quiz</h1>
+      <div class="progress-container">
+        <div class="progress-bar">
+          <div id="progress-fill" class="progress-fill"></div>
+        </div>
+        <p id="question-counter" class="question-counter">Frage 1 von 4</p>
+      </div>
+    </header>
+
+    <main class="quiz-content">
+      <div class="question-container">
+        <p id="question" aria-live="polite">Frage wird geladen...</p>
+      </div>
+      
+      <div id="answers" class="answers" role="radiogroup" aria-label="Antwortmöglichkeiten"></div>
+      
+      <div id="feedback" class="feedback hidden" aria-live="polite">
+        <div class="feedback-content">
+          <span id="feedback-icon" class="feedback-icon"></span>
+          <span id="feedback-text" class="feedback-text"></span>
+        </div>
+      </div>
+    </main>
+
+    <footer class="quiz-actions">
+      <button id="next-btn" class="btn primary-btn" style="display: none;">Weiter</button>
+      <button id="back-btn" class="btn secondary-btn">Zurück zur Auswahl</button>
+    </footer>
   </div>
 
   <!-- Result Screen -->
   <div id="result-screen" class="container hidden">
-    <h1 class="title">Quiz Completed!</h1>
-    <p id="score"></p>
-    <button id="restart-btn" class="btn">Restart</button>
-    <button id="back-btn-result" class="btn back-btn">Back to Choices</button>
+    <header class="quiz-header">
+      <div class="result-icon">🎉</div>
+      <h1 class="title">Quiz beendet!</h1>
+    </header>
+
+    <main class="result-content">
+      <div class="score-display">
+        <div id="score-circle" class="score-circle">
+          <span id="score-number">0</span>
+          <span class="score-total">/ 4</span>
+        </div>
+        <p id="score-text" class="score-text">Gut gemacht!</p>
+      </div>
+
+      <div id="score-breakdown" class="score-breakdown">
+        <h3>Deine Antworten:</h3>
+        <div id="answer-review" class="answer-review"></div>
+      </div>
+    </main>
+
+    <footer class="quiz-actions">
+      <button id="restart-btn" class="btn primary-btn">Nochmal spielen</button>
+      <button id="back-btn-result" class="btn secondary-btn">Neue Kategorie</button>
+    </footer>
   </div>
 
   <script src="script.js"></script>
