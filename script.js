@@ -1,3 +1,4 @@
+// Element References
 const startScreen = document.getElementById("start-screen");
 const quizScreen = document.getElementById("quiz-screen");
 const resultScreen = document.getElementById("result-screen");
@@ -8,11 +9,13 @@ const nextButton = document.getElementById("next-btn");
 const restartButton = document.getElementById("restart-btn");
 const backButtons = document.querySelectorAll(".back-btn");
 
+// State
 let currentQuestionIndex = 0;
 let score = 0;
 let currentQuiz = [];
-let currentTheme = ""; // Track the currently selected theme
+let currentTheme = "";
 
+// Quiz Content
 const quizzes = {
   baroque: {
     title: "Baroque Music Quiz",
@@ -54,15 +57,17 @@ const quizzes = {
 
 // Start the selected quiz
 const startQuiz = (theme) => {
-  document.body.className = ""; // Reset body class
-  document.body.classList.add(theme); // Set theme
+  document.body.className = ""; // Reset theme class
+  document.body.classList.add(theme); // Apply theme
   currentQuiz = quizzes[theme]?.questions || [];
-  currentTheme = theme; // Track the current theme
+  currentTheme = theme;
+
   if (currentQuiz.length === 0) {
-    console.error(`No questions found for the theme: ${theme}`);
+    console.error(`No questions found for theme: ${theme}`);
     return;
   }
-  quizTitle.textContent = quizzes[theme]?.title || "Music Quiz";
+
+  quizTitle.textContent = quizzes[theme].title;
   startScreen.classList.add("hidden");
   quizScreen.classList.remove("hidden");
   currentQuestionIndex = 0;
@@ -70,7 +75,7 @@ const startQuiz = (theme) => {
   showQuestion();
 };
 
-// Show the current question and its answers
+// Display current question and answers
 const showQuestion = () => {
   const question = currentQuiz[currentQuestionIndex];
   questionElement.textContent = question.question;
@@ -87,17 +92,28 @@ const showQuestion = () => {
   nextButton.style.display = "none";
 };
 
-// Handle answer selection
+// Handle answer selection with visual feedback
 const selectAnswer = (selectedButton, index) => {
-  const allButtons = answersElement.querySelectorAll(".btn");
-  allButtons.forEach((button) => button.classList.remove("selected"));
-  selectedButton.classList.add("selected");
   const question = currentQuiz[currentQuestionIndex];
-  if (index === question.correct) score++;
+  const allButtons = answersElement.querySelectorAll(".btn");
+
+  allButtons.forEach((button, btnIndex) => {
+    button.classList.add("disabled");
+    if (btnIndex === question.correct) {
+      button.classList.add("correct");
+    } else if (btnIndex === index) {
+      button.classList.add("incorrect");
+    }
+  });
+
+  if (index === question.correct) {
+    score++;
+  }
+
   nextButton.style.display = "block";
 };
 
-// Move to next question or show results
+// Show next question or results
 const nextQuestion = () => {
   currentQuestionIndex++;
   if (currentQuestionIndex < currentQuiz.length) {
@@ -107,7 +123,7 @@ const nextQuestion = () => {
   }
 };
 
-// Show the final result screen
+// Display final score
 const showResult = () => {
   quizScreen.classList.add("hidden");
   resultScreen.classList.remove("hidden");
@@ -116,20 +132,20 @@ const showResult = () => {
 
 // Restart the quiz
 const restartQuiz = () => {
-  if (!currentTheme) return; // Ensure a theme is set
-  resultScreen.classList.add("hidden"); // Hide the result screen
-  startQuiz(currentTheme); // Restart the current theme
+  if (!currentTheme) return;
+  resultScreen.classList.add("hidden");
+  startQuiz(currentTheme);
 };
 
-// Go back to choices and reset styles
+// Return to start screen
 const goToChoices = () => {
-  document.body.className = ""; // Reset body class to remove any theme
+  document.body.className = "";
   quizScreen.classList.add("hidden");
   resultScreen.classList.add("hidden");
   startScreen.classList.remove("hidden");
 };
 
-// Add event listeners
+// Event listeners
 backButtons.forEach((btn) => btn.addEventListener("click", goToChoices));
 nextButton.addEventListener("click", nextQuestion);
 restartButton.addEventListener("click", restartQuiz);

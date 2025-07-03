@@ -1,71 +1,117 @@
-# ESK Karlsruhe: Music Quiz
+# 🎵 ESK Karlsruhe: Music Quiz
 
-Welcome to the **ESK Karlsruhe: Music Quiz**! This interactive quiz application allows users to test their knowledge of classical music across four categories: **Baroque**, **Classical**, **Romantic**, and **Piano**. The app is designed to be intuitive, visually engaging, and fully responsive, providing an enjoyable experience for all users.
+## 🧾 Project Overview
 
----
+**Live Site:**  
+🔗 [https://freewimoe.github.io/PP2-js-quiz-final/](https://freewimoe.github.io/PP2-js-quiz-final/)
 
-## Table of Contents
-
-1. [Project Goals](#project-goals)
-2. [Features](#features)
-   - [Implemented Features](#implemented-features)
-   - [Future Features](#future-features)
-3. [User Experience (UX)](#user-experience-ux)
-   - [Target Audience](#target-audience)
-   - [User Stories](#user-stories)
-4. [Technologies Used](#technologies-used)
-5. [Testing](#testing)
-6. [Deployment](#deployment)
-7. [Credits](#credits)
-8. [Acknowledgments](#acknowledgments)
+This is an interactive quiz app designed for music students at the European School Karlsruhe. It allows users to test their knowledge of four different musical categories: Baroque, Classical, Romantic, and Piano music. The app is built with HTML, CSS, and JavaScript and follows best practices in accessibility, UX design, and responsive layout.
 
 ---
 
-## Project Goals
+## 💡 User Goals
 
-The primary goal of this project is to create an engaging and educational quiz experience for students of European School Karlsruhe. The quiz aims to:
-- Test users' knowledge of classical music, including composers, works, and terminology.
-- Provide a visually appealing, modern interface with category-specific themes.
-- Offer a smooth and responsive user experience across devices.
+### 🎯 External Users
+- I want to choose a category to test my knowledge of music.
+- I want to see questions one by one and choose an answer.
+- I want to receive feedback when I answer (correct/incorrect).
+- I want to see my final score at the end.
+- I want the site to work well on both desktop and mobile.
+
+### 👨‍🏫 Site Owner
+- I want to provide an engaging, visually clear quiz experience for students.
+- I want the app to be deployed online and accessible via link.
+- I want to demonstrate good use of JavaScript interactivity and clean code organization.
 
 ---
 
-## Features
+## ✨ Features
 
-### Implemented Features
+### 🎬 Homepage
+- Title and brief introduction to the quiz
+- Category buttons (Baroque, Classical, Romantic, Piano)
 
-1. **Start Screen**
-   - A welcoming introduction to the quiz with a brief description and four category buttons:
-     - **Baroque**
-     - **Classical**
-     - **Romantic**
-     - **Piano**
-   - Each button is color-coded to represent its respective category.
+### ❓ Quiz Interface
+- One question at a time
+- Multiple choice answers
+- Immediate feedback: correct/incorrect
+- Final score display
+- Reset/restart quiz option
 
-2. **Dynamic Quiz**
-   - Each quiz consists of **4 questions** (or more, depending on the category).
-   - Questions and answers are displayed dynamically, with one question at a time.
-   - Users can select an answer, which is visually highlighted, and then proceed to the next question.
+### 🎨 Design
+- Responsive layout using CSS Flexbox
+- Category-specific button colors
+- Consistent typography and spacing
+- Light background with school branding
 
-3. **Category-Specific Design**
-   - Each quiz has a unique color scheme that reflects its category.
-   - Answer buttons and the "Next" button adopt the category's theme for a consistent design.
+---
 
-4. **Result Screen**
-   - Displays the user's final score with a message.
-   - Offers two options:
-     - **Restart**: Restart the current quiz.
-     - **Back to Choices**: Return to the start screen to select another category.
+## 📱 Responsiveness
 
-5. **Responsiveness**
-   - The quiz is fully responsive and adapts to different screen sizes (desktop, tablet, mobile).
+The layout adjusts for:
+- Desktop browsers
+- Tablets
+- Mobile phones (tested on Chrome Developer Tools)
 
-6. **User Feedback**
-   - Hover effects: Buttons increase in size and brightness when hovered over.
-   - Selected answers are visually distinct, with a darker background and white text.
+Media queries are used to optimize button sizes, text flow, and spacing.
 
-### Future Features
+---
 
-- **Customizable Quiz Length**:
-  Allow users to select the number of questions per quiz (e.g., 5, 10, or 15).
-- **Lead
+## 🧪 Testing
+
+### ✅ User Story Testing
+
+| User Story | Tested | Result |
+|------------|--------|--------|
+| Choose a quiz category | ✔️ | Works |
+| See questions and answer options | ✔️ | Works |
+| Get immediate feedback | ✔️ | Works |
+| View final score | ✔️ | Works |
+| Restart quiz | ✔️ | Works |
+| Use on mobile devices | ✔️ | Fully responsive |
+
+---
+
+### 🧰 Validator Results
+
+| Tool | Result |
+|------|--------|
+| [W3C HTML Validator](https://validator.w3.org/) | ✅ No critical errors |
+| [W3C CSS Validator](https://jigsaw.w3.org/css-validator/) | ✅ Valid |
+| [JSHint](https://jshint.com/) | ✅ No major warnings (ES6 used) |
+
+---
+
+### 🐛 Known Bugs
+
+- Slight layout shift on very small screens (below 320px)
+- No sound or animation feedback yet implemented
+
+---
+
+## 🛠️ Technologies Used
+
+- HTML5
+- CSS3 (Flexbox, Media Queries)
+- JavaScript (DOM Manipulation, Event Handling)
+- Git / GitHub for version control
+- GitHub Pages for deployment
+
+---
+
+## 🚀 Deployment
+
+The site is deployed via **GitHub Pages**:
+
+1. Repository: `https://github.com/freewimoe/PP2-js-quiz-final`
+2. GitHub Pages settings:
+   - Branch: `main`
+   - Folder: `/ (root)`
+3. Live site: [https://freewimoe.github.io/PP2-js-quiz-final/](https://freewimoe.github.io/PP2-js-quiz-final/)
+
+---
+
+## 📸 Screenshots
+
+*You can add images like this below – just replace with your actual paths in `/images` folder:*
+

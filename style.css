@@ -125,3 +125,20 @@ body {
 .piano #next-btn {
   background-color: #37a999;
 }
+.btn.correct {
+  background-color: #4CAF50 !important; /* grün */
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+.btn.incorrect {
+  background-color: #f44336 !important; /* rot */
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+.btn.disabled {
+  pointer-events: none;
+  opacity: 0.6;
+  cursor: default;
+}
